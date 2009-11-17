@@ -1,0 +1,25 @@
+DESCRIPTION="GTK+ music player fork of BMP/XMMS"
+HOMEPAGE="http://audacious-media-player.org/"
+SRC_URI="http://distfiles.atheme.org/${P}.tgz"
+PATCH_URI="2.1-buildsys.patch
+           2.1-no-undefined.patch"
+
+PKG_NAMES="${PN} ${PN}-devel"
+audacious_CONTENTS="etc/ usr/bin/ usr/share/"
+audacious_devel_CONTENTS="usr/include/ usr/lib/"
+
+NO_AUTOPOINT=1
+NO_ACLOCAL=1
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf \
+		--enable-samplerate \
+		--disable-altivec \
+		--disable-chardet \
+		--with-regexlib=pcre
+	cygmake
+}
