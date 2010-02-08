@@ -1,0 +1,42 @@
+libaudgui depends on the plugin API and is only used for 2 plugins
+
+--- origsrc/audacious-2.2/audacious.pc.in	2009-11-22 16:43:46.000000000 -0600
++++ src/audacious-2.2/audacious.pc.in	2010-02-07 23:03:04.292722000 -0600
+@@ -21,5 +21,5 @@ Name: Audacious
+ Description: Audacious is a versatile and handy multi platform media player
+ Version: @PACKAGE_VERSION@
+ Requires: @PC_REQUIRES@
+-Libs: -L${lib_dir} @LIBAUDCLIENT_LDFLAGS@
++Libs: -L${lib_dir} -laudcore @LIBAUDCLIENT_LDFLAGS@
+ Cflags: -I${audacious_include_dir}
+--- origsrc/audacious-2.2/src/libSAD/Makefile	2009-11-22 16:43:47.000000000 -0600
++++ src/audacious-2.2/src/libSAD/Makefile	2010-02-07 21:12:31.424343600 -0600
+@@ -16,3 +16,4 @@ include ../../extra.mk
+ PACKAGE = libSAD
+ CPPFLAGS += ${SIMD_CFLAGS} ${GLIB_CFLAGS} -I../..
+ CFLAGS += ${LIB_CFLAGS} ${GLIB_CFLAGS}
++LIBS += ${GLIB_LIBS}
+--- origsrc/audacious-2.2/src/libaudgui/Makefile	2009-11-22 16:43:47.000000000 -0600
++++ src/audacious-2.2/src/libaudgui/Makefile	2010-02-07 23:22:34.203637100 -0600
+@@ -1,4 +1,4 @@
+-LIB = ${LIB_PREFIX}audgui${LIB_SUFFIX}
++STATIC_LIB = libaudgui.a
+ LIB_MAJOR = 1
+ LIB_MINOR = 0
+ 
+--- origsrc/audacious-2.2/src/libaudtag/Makefile	2009-11-22 16:43:47.000000000 -0600
++++ src/audacious-2.2/src/libaudtag/Makefile	2010-02-07 21:00:53.696435900 -0600
+@@ -18,4 +18,4 @@ includesubdir = libaudtag
+ 
+ CPPFLAGS += ${LIB_CPPFLAGS} ${GLIB_CFLAGS} ${MOWGLI_CFLAGS} -D_AUDACIOUS_CORE -I.. -I../..
+ CFLAGS += ${LIB_CFLAGS}
+-LIBS += ${GLIB_LIBS} ${MOWGLI_LIBS}
++LIBS += -L../libaudcore -laudcore ${GLIB_LIBS} ${MOWGLI_LIBS}
+--- origsrc/audacious-2.2/src/libid3tag/Makefile	2009-11-22 16:43:47.000000000 -0600
++++ src/audacious-2.2/src/libid3tag/Makefile	2010-02-07 21:00:59.265754400 -0600
+@@ -31,4 +31,4 @@ CPPFLAGS += ${LIB_CPPFLAGS} -I.. ${GLIB_
+ 	${MOWGLI_CFLAGS} ${LIBMCS_CFLAGS}
+ 
+ CFLAGS += ${LIB_CFLAGS}
+-LIBS += -lz ${GLIB_LIBS}
++LIBS += -L../libaudcore -laudcore -lz ${GLIB_LIBS}
