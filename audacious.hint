@@ -1,5 +1,5 @@
 category: Audio
-requires: libdbus-glib_1_2 libdbus1_3 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libICE6 libintl8 libmcs1 libmowgli2 libpcre0 libsamplerate0 libSM6 zlib0
+requires: libdbus-glib_1_2 libdbus1_3 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libICE6 libintl8 libmcs1 libmowgli2 libpango1.0_0 libpcre0 libSM6
 sdesc: "GTK audio player, fork of BMP/XMMS"
 ldesc: "Audacious is an advanced audio player. It is free, lightweight, 
 based on GTK2, runs on Linux and many other *nix platforms and is 

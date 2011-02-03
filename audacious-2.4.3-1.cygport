@@ -1,8 +1,7 @@
 DESCRIPTION="GTK+ music player fork of BMP/XMMS"
 HOMEPAGE="http://audacious-media-player.org/"
 SRC_URI="http://distfiles.atheme.org/${P}.tgz"
-PATCH_URI="2.1-buildsys.patch
-           2.2-no-undefined.patch"
+PATCH_URI="2.4-buildsys.patch"
 
 PKG_NAMES="${PN} ${PN}-devel"
 audacious_CONTENTS="etc/ usr/bin/ usr/share/"
