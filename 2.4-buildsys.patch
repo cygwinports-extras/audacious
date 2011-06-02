@@ -38,11 +38,11 @@
  		${LIBINTL}						\
  		${EGGSM_LIBS}					\
  		${GLIB_LIBS}					\
---- origsrc/audacious-2.4.3/src/audtool/Makefile	2011-01-12 05:07:37.000000000 -0600
-+++ src/audacious-2.4.3/src/audtool/Makefile	2011-02-03 00:45:27.376315900 -0600
+--- origsrc/audacious-2.5.1/src/audtool/Makefile
++++ src/audacious-2.5.1/src/audtool/Makefile
 @@ -1,4 +1,4 @@
--PROG = audtool2
-+PROG = audtool2${PROG_SUFFIX}
+-PROG = audtool
++PROG = audtool${PROG_SUFFIX}
  SRCS = main.c				\
         handlers_general.c	\
         handlers_playback.c	\
