@@ -25,19 +25,6 @@
  			AC_MSG_RESULT(Win32)
  			LIB_CPPFLAGS='-DPIC'
  			LIB_CFLAGS=''
---- origsrc/audacious-2.4.3/src/audacious/Makefile	2011-01-12 05:07:37.000000000 -0600
-+++ src/audacious-2.4.3/src/audacious/Makefile	2011-02-03 03:43:48.843381500 -0600
-@@ -116,9 +116,9 @@ CPPFLAGS += -std=gnu99 \
- 
- LIBS += ${LDADD}						\
-         -lm \
-+		-L../libaudtag -laudtag		\
- 		-L../libaudcore -laudcore	\
- 		-L../libaudgui -laudgui \
--		-L../libaudtag -laudtag		\
- 		${LIBINTL}						\
- 		${EGGSM_LIBS}					\
- 		${GLIB_LIBS}					\
 --- origsrc/audacious-2.5.1/src/audtool/Makefile
 +++ src/audacious-2.5.1/src/audtool/Makefile
 @@ -1,4 +1,4 @@
@@ -46,13 +33,3 @@
  SRCS = main.c				\
         handlers_general.c	\
         handlers_playback.c	\
---- origsrc/audacious-2.4.3/src/libaudtag/Makefile	2011-02-03 04:26:17.512323400 -0600
-+++ src/audacious-2.4.3/src/libaudtag/Makefile	2011-02-03 03:15:43.080025100 -0600
-@@ -1,6 +1,4 @@
--LIB = ${LIB_PREFIX}audtag${LIB_SUFFIX}
--LIB_MAJOR = 1
--LIB_MINOR = 0
-+STATIC_LIB = libaudtag.a
- 
- SRCS = audtag.c		\
-        util.c		\

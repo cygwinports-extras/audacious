@@ -1,5 +1,5 @@
 category: Audio
-requires: audacious libdbus-glib_1-devel libdbus1-devel libgdk_pixbuf2.0-devel libglib2.0-devel libgtk2.0-devel gettext libmcs-devel libmowgli-devel libpango1.0-devel libpcre-devel
+requires: audacious libdbus-glib_1-devel libdbus1-devel libgdk_pixbuf2.0-devel libglib2.0-devel libgtk3-devel libguess-devel gettext libmcs-devel libmowgli-devel libpango1.0-devel libpcre-devel
 external-source: audacious
 sdesc: "GTK audio player, fork of BMP/XMMS (plugin development)"
 ldesc: "Audacious is an advanced audio player. It is free, lightweight, 
