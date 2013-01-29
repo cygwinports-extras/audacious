@@ -1,0 +1,31 @@
+NAME="audacious"
+VERSION=3.3.3
+RELEASE=1
+CATEGORY="Audio"
+SUMMARY="GTK audio player, fork of BMP/XMMS"
+DESCRIPTION="Audacious is an advanced audio player. It is free, lightweight,
+based on GTK+, runs on Linux and many other *nix platforms and is focused on
+audio quality and supporting a wide range of audio codecs. Audacious is a fork
+of Beep Media Player (BMP), which itself forked from XMMS."
+HOMEPAGE="http://audacious-media-player.org/"
+SRC_URI="http://distfiles.audacious-media-player.org/${P}.tar.bz2"
+PATCH_URI="2.4-buildsys.patch"
+
+PKG_NAMES="${PN} ${PN}-devel"
+audacious_CONTENTS="etc/ usr/bin/ usr/share/"
+audacious_devel_REQUIRES="libdbus-glib_1-devel libglib2.0-devel libgtk3-devel gettext"
+audacious_devel_CONTENTS="usr/include/ usr/lib/"
+
+NO_AUTOPOINT=1
+NO_ACLOCAL=1
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf \
+		--disable-altivec \
+		--with-regexlib=pcre
+	cygmake
+}
