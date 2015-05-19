@@ -1,5 +1,5 @@
 NAME="audacious"
-VERSION=3.4.3
+VERSION=3.6.1
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="GTK audio player, fork of BMP/XMMS"
@@ -13,7 +13,7 @@ PATCH_URI="2.4-buildsys.patch"
 
 PKG_NAMES="${NAME} ${NAME}-devel"
 audacious_CONTENTS="etc/ usr/bin/ usr/share/"
-audacious_devel_REQUIRES="libdbus-glib_1-devel libglib2.0-devel libgtk3-devel gettext"
+audacious_devel_REQUIRES="libdbus-glib_1-devel libglib2.0-devel libgtk2.0-devel gettext"
 audacious_devel_CONTENTS="usr/include/ usr/lib/"
 
 NO_AUTOPOINT=1
