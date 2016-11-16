@@ -1,0 +1,8 @@
+--- origsrc/audacious-3.8/src/audtool/Makefile	2016-11-16 13:29:47.289629000 -0600
++++ src/audacious-3.8/src/audtool/Makefile	2016-11-16 13:15:01.061243800 -0600
+@@ -1,4 +1,4 @@
+-PROG = audtool
++PROG = audtool${PROG_SUFFIX}
+ SRCS = main.c				\
+        handlers_general.c	\
+        handlers_playback.c	\

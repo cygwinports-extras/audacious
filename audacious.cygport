@@ -1,5 +1,5 @@
 NAME="audacious"
-VERSION=3.7.2
+VERSION=3.8
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="GTK audio player, fork of BMP/XMMS"
@@ -9,12 +9,34 @@ audio quality and supporting a wide range of audio codecs. Audacious is a fork
 of Beep Media Player (BMP), which itself forked from XMMS."
 HOMEPAGE="http://audacious-media-player.org/"
 SRC_URI="http://distfiles.audacious-media-player.org/${NAME}-${VERSION}.tar.bz2"
-PATCH_URI="2.4-buildsys.patch"
+PATCH_URI="3.8-buildsys.patch"
 
-PKG_NAMES="${NAME} ${NAME}-devel"
-audacious_CONTENTS="etc/ usr/bin/ usr/share/"
-audacious_devel_REQUIRES="libdbus-glib_1-devel libglib2.0-devel libgtk2.0-devel gettext"
-audacious_devel_CONTENTS="usr/include/ usr/lib/"
+# this split of libs is simply to avoid a circular dep with audacious-plugins
+PKG_NAMES="${NAME} ${NAME}-libs ${NAME}-devel"
+audacious_REQUIRES="audacious-plugins"
+audacious_CONTENTS="
+	etc/postinstall/audacious.sh
+	usr/bin/audacious.exe
+	usr/bin/audtool.exe
+	usr/share/applications/audacious.desktop
+	usr/share/audacious/
+	usr/share/doc/${NAME}
+	usr/share/icons/hicolor/*/apps/audacious.*
+	usr/share/locale/*/LC_MESSAGES/audacious.mo
+	usr/share/man/man1/aud*
+"
+audacious_libs_CONTENTS="
+	usr/bin/cygaudcore-4.dll
+	usr/bin/cygaudgui-4.dll
+	usr/bin/cygaudtag-3.dll
+"
+audacious_devel_REQUIRES="libglib2.0-devel libgtk2.0-devel libintl-devel"
+audacious_devel_CONTENTS="
+	usr/include/audacious/
+	usr/include/libaud*/
+	usr/lib/libaud*.dll.a
+	usr/lib/pkgconfig/audacious.pc
+"
 
 NO_AUTOPOINT=1
 #NO_ACLOCAL=1
