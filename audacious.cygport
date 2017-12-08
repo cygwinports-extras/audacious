@@ -1,5 +1,5 @@
 NAME="audacious"
-VERSION=3.8.2
+VERSION=3.9
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="GTK audio player, fork of BMP/XMMS"
@@ -26,8 +26,8 @@ audacious_CONTENTS="
 	usr/share/man/man1/aud*
 "
 audacious_libs_CONTENTS="
-	usr/bin/cygaudcore-4.dll
-	usr/bin/cygaudgui-4.dll
+	usr/bin/cygaudcore-5.dll
+	usr/bin/cygaudgui-5.dll
 	usr/bin/cygaudtag-3.dll
 "
 audacious_devel_REQUIRES="libglib2.0-devel libgtk2.0-devel libintl-devel"
